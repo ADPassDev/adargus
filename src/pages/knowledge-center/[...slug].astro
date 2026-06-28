@@ -1,0 +1,196 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const reports = await getCollection('knowledge', ({ data }) => !data.draft);
+  return reports.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const catLabel: Record<string, string> = {
+  'zero-day': 'Zero-Day',
+  breach: 'Breach',
+  advisory: 'Advisory',
+};
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const host = (() => {
+  try {
+    return new URL(entry.data.sourceUrl).hostname.replace(/^www\./, '');
+  } catch {
+    return entry.data.sourceUrl;
+  }
+})();
+---
+
+<BaseLayout title={`${entry.data.title} — AD Argus Knowledge Center`} description={entry.data.summary}>
+  <section class="page-head">
+    <div class="container narrow">
+      <a href="/knowledge-center/" class="back-link">← Knowledge Center</a>
+      <div class="report-meta">
+        <span class={`kc-cat kc-cat-${entry.data.category}`}>
+          {catLabel[entry.data.category]}
+        </span>
+        <time datetime={entry.data.date.toISOString()}>{fmtDate(entry.data.date)}</time>
+        {
+          entry.data.cves.length > 0 && (
+            <span class="report-cves">{entry.data.cves.join(', ')}</span>
+          )
+        }
+      </div>
+      <h1 class="report-title">{entry.data.title}</h1>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container narrow">
+      <article class="report-body">
+        <Content />
+      </article>
+
+      <div class="source-callout">
+        <div>
+          <span class="source-label">Primary source</span>
+          <p class="source-name">{entry.data.sourceName}</p>
+        </div>
+        <a href={entry.data.sourceUrl} rel="noopener" class="btn btn-primary">
+          Read at {host} ↗
+        </a>
+      </div>
+
+      <p class="report-disclaimer">
+        Summary by AD Argus. We publish our own analysis with attribution and a
+        link to the original report; always consult the primary source for
+        authoritative detail.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+  .page-head {
+    padding-bottom: 1.5rem;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+  .back-link:hover {
+    color: var(--accent-bright);
+  }
+  .report-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+  .report-cves {
+    font-family: var(--font-mono);
+    color: var(--accent-bright);
+  }
+  .kc-cat {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-bright);
+  }
+  .kc-cat-zero-day {
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.4);
+    background: rgba(248, 113, 113, 0.08);
+  }
+  .kc-cat-breach {
+    color: #fb923c;
+    border-color: rgba(251, 146, 60, 0.4);
+    background: rgba(251, 146, 60, 0.08);
+  }
+  .kc-cat-advisory {
+    color: var(--accent);
+    border-color: var(--border-bright);
+    background: rgba(45, 212, 191, 0.06);
+  }
+  .report-title {
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    line-height: 1.2;
+  }
+
+  .report-body {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .report-body :global(p) {
+    margin-bottom: 1.2rem;
+  }
+  .report-body :global(h2) {
+    color: var(--text);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.6rem;
+  }
+  .report-body :global(strong) {
+    color: var(--text);
+  }
+  .report-body :global(ul) {
+    margin: 0 0 1.2rem 1.2rem;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .report-body :global(blockquote) {
+    border-left: 3px solid var(--border-bright);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+
+  .source-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding: 1.5rem 1.75rem;
+    background: rgba(45, 212, 191, 0.05);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+  }
+  .source-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .source-name {
+    color: var(--text);
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+  .report-disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+</style>

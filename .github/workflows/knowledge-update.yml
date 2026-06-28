@@ -1,0 +1,58 @@
+name: Daily Knowledge Center update
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # 13:00 UTC daily
+  workflow_dispatch:
+
+# Allow the job to commit the generated content back to the repo.
+permissions:
+  contents: write
+
+concurrency:
+  group: knowledge-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh CVEs + generate summaries
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }} # optional — higher NVD rate limit
+        run: npm run update:knowledge
+
+      - name: Commit generated content
+        run: |
+          git config user.name "adargus-bot"
+          git config user.email "bot@adargus.com"
+          git add src/content/knowledge src/data/cves.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: daily knowledge center update [skip ci]"
+            git push
+          fi
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 089580d7177428cf3cfbc6fd5e1e29d2
+          command: pages deploy dist --project-name=adargus --branch=main
