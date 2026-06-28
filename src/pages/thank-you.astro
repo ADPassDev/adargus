@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Thank you — AD Argus"
+  description="Your message has been received by AD Argus."
+>
+  <section class="thanks">
+    <div class="container">
+      <div class="thanks-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="28" stroke="var(--accent)" stroke-width="2.5" fill="rgba(45,212,191,0.06)"/>
+          <path d="M21 33l7 7 15-16" stroke="var(--accent-bright)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="eyebrow">Message received</span>
+      <h1 class="section-title">Thank you — we'll be in touch</h1>
+      <p class="lead" style="margin-inline:auto;">
+        Your message has reached the AD Argus team. We aim to respond within two
+        business days. For urgent security matters, email
+        <a href="mailto:security@adargus.com">security@adargus.com</a>.
+      </p>
+      <a href="/" class="btn btn-primary" style="margin-top:1.75rem;">
+        Back to home
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thanks {
+    text-align: center;
+    padding-block: clamp(4rem, 12vw, 8rem);
+  }
+  .thanks-icon {
+    width: 72px;
+    margin: 0 auto 1.5rem;
+  }
+</style>

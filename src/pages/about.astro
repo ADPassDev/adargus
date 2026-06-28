@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  {
+    title: 'Security by design',
+    body: 'Security is not a feature we add at the end — it shapes every decision from the first line of code.',
+  },
+  {
+    title: 'Operational respect',
+    body: 'Our software runs in real environments operated by real teams. We optimize for clarity, reliability, and good documentation.',
+  },
+  {
+    title: 'Focused craft',
+    body: 'We would rather do a few things excellently than many things adequately. Depth over breadth.',
+  },
+];
+
+// The hundred eyes of Argus — a couple "rest" at any moment, the rest keep watch.
+const eyes = Array.from({ length: 12 }, (_, i) => ({
+  i,
+  open: i !== 4 && i !== 9,
+}));
+---
+
+<BaseLayout
+  title="About — AD Argus"
+  description="AD Argus Cybersecurity Corporation is a cybersecurity software company and publisher of ADPassSync."
+>
+  <section class="page-head">
+    <div class="container narrow">
+      <span class="eyebrow">About</span>
+      <h1 class="section-title">Vigilance is our discipline</h1>
+      <p class="lead">
+        AD Argus is a cybersecurity software company focused on the foundation of
+        enterprise security: identity and access in Active Directory.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container narrow prose">
+      <p>
+        Active Directory sits at the center of most enterprise networks. It
+        decides who someone is and what they can do. When it drifts out of sync,
+        or goes unwatched, the whole organization is exposed. AD Argus exists to
+        build the tools that keep that foundation consistent and under control —
+        starting with <a href="https://adpasssync.com" rel="noopener">ADPassSync</a>,
+        our real-time password synchronization software.
+      </p>
+
+      <div class="myth-panel">
+        <div class="myth-eyes" aria-hidden="true">
+          {
+            eyes.map((e) =>
+              e.open ? (
+                <svg
+                  class="eye"
+                  style={`--i:${e.i}`}
+                  viewBox="0 0 44 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 13C8 5 15 2 22 2s14 3 20 11c-6 8-13 11-20 11S8 21 2 13Z"
+                    stroke="var(--accent-bright)"
+                    stroke-width="1.6"
+                  />
+                  <circle cx="22" cy="13" r="4.5" fill="var(--accent)" />
+                  <circle cx="22" cy="13" r="1.6" fill="#04201c" />
+                </svg>
+              ) : (
+                <svg
+                  class="eye eye-rest"
+                  viewBox="0 0 44 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 13C9 19 16 21 22 21s13-2 19-8"
+                    stroke="var(--text-dim)"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )
+            )
+          }
+        </div>
+        <span class="eyebrow">The name</span>
+        <h2 class="myth-heading">Argus Panoptes, the ever-watchful</h2>
+        <p>
+          In Greek myth, Argus Panoptes was a giant whose body was set with a
+          hundred eyes. Even as he slept, only a few ever closed at once — the
+          rest stayed open and watching. Hera made him her sentinel precisely
+          because his vigilance never lapsed: there was no hour, no blind spot,
+          and no distraction that could leave his charge unguarded.
+        </p>
+        <p>
+          That is the standard we hold our software to. Credentials and identity
+          are exactly what an attacker wants most, so they have to be watched
+          without pause — not only during business hours, not only when someone
+          remembers to look, but continuously. We named the company AD&nbsp;Argus
+          because perpetual vigilance isn't a feature we add on; it is the whole
+          idea.
+        </p>
+      </div>
+
+      <h2>What we value</h2>
+      <div class="grid grid-3" style="margin-top:1.5rem;">
+        {
+          values.map((v) => (
+            <article class="card">
+              <h3 class="value-title">{v.title}</h3>
+              <p class="text-muted">{v.body}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <h2>The company</h2>
+      <p>
+        AD Argus is the trading name of <strong>AD Argus Cybersecurity
+        Corporation</strong>. We publish and support our own software and work
+        directly with the organizations that rely on it.
+      </p>
+
+      <div class="callout">
+        <p>
+          Want to work with us, or just have a question?
+          <a href="/contact">Get in touch →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+  .page-head {
+    padding-bottom: 1.5rem;
+  }
+  .prose p {
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+  }
+  .prose h2 {
+    font-size: 1.6rem;
+    margin-top: 2.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .value-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Argus Panoptes panel */
+  .myth-panel {
+    margin-top: 2.75rem;
+    padding: 2rem 1.85rem 1.85rem;
+    background: rgba(45, 212, 191, 0.04);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+  }
+  .myth-eyes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem 1.15rem;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .eye {
+    width: 34px;
+    height: auto;
+    opacity: 0.9;
+  }
+  .eye-rest {
+    opacity: 0.45;
+  }
+  .myth-panel .myth-heading {
+    margin-top: 0;
+    font-size: 1.55rem;
+    margin-bottom: 0.75rem;
+  }
+  .myth-panel p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .eye {
+      animation: blink 7s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.45s);
+    }
+    @keyframes blink {
+      0%,
+      93%,
+      100% {
+        opacity: 0.9;
+      }
+      96% {
+        opacity: 0.3;
+      }
+    }
+  }
+  .callout {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1.75rem;
+    background: rgba(45, 212, 191, 0.05);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+  }
+  .callout p {
+    margin: 0;
+    color: var(--text);
+  }
+</style>

@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pillars = [
+  {
+    title: 'Identity & Access',
+    body: 'Keep credentials synchronized, consistent, and under control across hybrid Active Directory environments.',
+    icon: 'key',
+  },
+  {
+    title: 'Built for Defenders',
+    body: 'Tooling designed around least privilege, auditability, and the operational realities of IT and security teams.',
+    icon: 'shield',
+  },
+  {
+    title: 'Quiet & Reliable',
+    body: 'Software that does its job without drama — predictable, well-documented, and engineered to run unattended.',
+    icon: 'pulse',
+  },
+];
+
+const icons: Record<string, string> = {
+  key: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2"/><path d="m16 7 3 3"/><path d="m18 5 3 3"/></svg>',
+  shield: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>',
+  pulse: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+};
+const icon = (name: string) => icons[name] ?? '';
+
+// Scattered "hundred eyes of Argus" field behind the hero — biased to the
+// edges so they never sit directly behind the headline. A few rest (closed).
+const heroEyes = [
+  { top: 14, left: 9, size: 30, open: true },
+  { top: 10, left: 40, size: 20, open: false },
+  { top: 18, left: 64, size: 26, open: true },
+  { top: 22, left: 87, size: 24, open: true },
+  { top: 33, left: 20, size: 24, open: true },
+  { top: 36, left: 93, size: 18, open: false },
+  { top: 48, left: 5, size: 26, open: true },
+  { top: 44, left: 75, size: 20, open: true },
+  { top: 58, left: 91, size: 28, open: true },
+  { top: 64, left: 49, size: 16, open: false },
+  { top: 70, left: 13, size: 22, open: true },
+  { top: 78, left: 81, size: 26, open: true },
+  { top: 84, left: 31, size: 22, open: true },
+  { top: 88, left: 60, size: 18, open: true },
+  { top: 15, left: 73, size: 16, open: true },
+  { top: 52, left: 28, size: 18, open: false },
+];
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Cybersecurity Software</span>
+      <h1 class="hero-title">
+        Vigilance, built into<br /><span class="accent">your infrastructure.</span>
+      </h1>
+      <p class="lead hero-lead">
+        AD Argus builds focused cybersecurity software that helps organizations
+        secure identity and access at the foundation of their network —
+        Active Directory.
+      </p>
+      <div class="hero-actions">
+        <a href="/products" class="btn btn-primary">Explore our products</a>
+        <a href="https://adpasssync.com" rel="noopener" class="btn btn-ghost">
+          Visit ADPassSync ↗
+        </a>
+      </div>
+    </div>
+    <div class="hero-eyes" aria-hidden="true">
+      {
+        heroEyes.map((e, i) =>
+          e.open ? (
+            <svg
+              class="hero-eye"
+              style={`top:${e.top}%;left:${e.left}%;width:${e.size}px;--i:${i}`}
+              viewBox="0 0 44 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 13C8 5 15 2 22 2s14 3 20 11c-6 8-13 11-20 11S8 21 2 13Z"
+                stroke="var(--accent-bright)"
+                stroke-width="1.6"
+              />
+              <circle cx="22" cy="13" r="4.5" fill="var(--accent)" />
+            </svg>
+          ) : (
+            <svg
+              class="hero-eye rest"
+              style={`top:${e.top}%;left:${e.left}%;width:${e.size}px`}
+              viewBox="0 0 44 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 13C9 19 16 21 22 21s13-2 19-8"
+                stroke="var(--accent-bright)"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </svg>
+          )
+        )
+      }
+    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+  </section>
+
+  <!-- Pillars -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">What we do</span>
+      <h2 class="section-title">Security that starts at the directory</h2>
+      <p class="lead">
+        Active Directory is the keys to the kingdom. We build the tools that keep
+        those keys synchronized, governed, and watched.
+      </p>
+      <div class="grid grid-3" style="margin-top: 2.5rem;">
+        {
+          pillars.map((p) => (
+            <article class="card">
+              <div class="card-icon" set:html={icon(p.icon)} />
+              <h3 class="card-title">{p.title}</h3>
+              <p class="text-muted">{p.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ADPassSync spotlight -->
+  <section class="spotlight">
+    <div class="container spotlight-inner">
+      <div class="spotlight-copy">
+        <span class="eyebrow">Flagship product</span>
+        <h2 class="section-title">ADPassSync</h2>
+        <p class="lead">
+          Real-time Active Directory password synchronization. ADPassSync keeps
+          credentials consistent across your directories and connected systems —
+          so users get one password, and you keep control.
+        </p>
+        <ul class="feature-list">
+          <li>Real-time, event-driven synchronization</li>
+          <li>Hybrid and multi-domain ready</li>
+          <li>Secure by design, built for IT &amp; security teams</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="https://adpasssync.com" rel="noopener" class="btn btn-primary">
+            Learn more at adpasssync.com ↗
+          </a>
+        </div>
+      </div>
+      <div class="spotlight-visual" aria-hidden="true">
+        <div class="sync-card">
+          <div class="sync-row"><span>Active Directory</span><em>synced</em></div>
+          <div class="sync-line"></div>
+          <div class="sync-row"><span>Connected systems</span><em>synced</em></div>
+          <div class="sync-line"></div>
+          <div class="sync-row"><span>Audit log</span><em>verified</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+      <h2 class="section-title">Let's talk security</h2>
+      <p class="lead" style="margin-inline:auto;">
+        Questions about our software, licensing, or partnering with AD Argus?
+        We'd like to hear from you.
+      </p>
+      <a href="/contact" class="btn btn-primary" style="margin-top:1.75rem;">
+        Contact AD Argus
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(4rem, 12vw, 8rem);
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 820px;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 7vw, 4.2rem);
+    margin-block: 0.5rem 1.5rem;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .hero-title .accent {
+    color: var(--accent);
+  }
+  .hero-lead {
+    margin-inline: auto;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.25rem;
+  }
+  .hero-glow {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(
+      circle,
+      var(--accent-glow) 0%,
+      transparent 60%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Scattered "hundred eyes" field */
+  .hero-eyes {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero-eye {
+    position: absolute;
+    height: auto;
+    opacity: 0.16;
+    transform: translate(-50%, -50%);
+    will-change: opacity;
+  }
+  .hero-eye.rest {
+    opacity: 0.09;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-eye {
+      animation: hero-blink 8s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.4s);
+    }
+    @keyframes hero-blink {
+      0%,
+      94%,
+      100% {
+        opacity: 0.16;
+      }
+      97% {
+        opacity: 0.03;
+      }
+    }
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(45, 212, 191, 0.08);
+    border: 1px solid var(--border-bright);
+    margin-bottom: 1.1rem;
+    color: var(--accent);
+  }
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .spotlight {
+    background: var(--bg-elevated);
+    border-block: 1px solid var(--border);
+  }
+  .spotlight-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .feature-list {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .feature-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--text-muted);
+  }
+  .feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-glow);
+  }
+
+  .spotlight-visual {
+    display: grid;
+    place-items: center;
+  }
+  .sync-card {
+    width: 100%;
+    max-width: 340px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+  }
+  .sync-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+  .sync-row span {
+    color: var(--text);
+  }
+  .sync-row em {
+    font-style: normal;
+    color: var(--accent);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .sync-line {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-deep), transparent);
+    margin-block: 0.85rem;
+  }
+
+  .cta {
+    text-align: center;
+  }
+  .cta-inner {
+    max-width: 640px;
+  }
+
+  @media (max-width: 860px) {
+    .spotlight-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

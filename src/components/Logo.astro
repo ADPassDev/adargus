@@ -1,0 +1,51 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 32 } = Astro.props;
+---
+
+<span class="logo" aria-label="AD Argus home">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 48 48"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-hidden="true"
+  >
+    <!-- Shield -->
+    <path
+      d="M24 3 7 9.5v12.8C7 33.4 14.2 42 24 45c9.8-3 17-11.6 17-22.7V9.5L24 3Z"
+      stroke="var(--accent)"
+      stroke-width="2"
+      fill="rgba(45,212,191,0.06)"
+    />
+    <!-- Argus eye -->
+    <path
+      d="M13 23c3.4-5.2 7.6-7.8 11-7.8S31.6 17.8 35 23c-3.4 5.2-7.6 7.8-11 7.8S16.4 28.2 13 23Z"
+      stroke="var(--accent-bright)"
+      stroke-width="2"
+      fill="none"
+    />
+    <circle cx="24" cy="23" r="4.2" fill="var(--accent)" />
+    <circle cx="24" cy="23" r="1.6" fill="#04201c" />
+  </svg>
+  <span class="logo-text">AD&nbsp;Argus</span>
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .logo-text {
+    white-space: nowrap;
+  }
+</style>

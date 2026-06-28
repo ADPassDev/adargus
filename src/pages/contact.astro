@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const channels = [
+  {
+    label: 'Sales & general',
+    email: 'hello@adargus.com',
+    body: 'Product questions, licensing, partnerships, or anything else.',
+  },
+  {
+    label: 'Support',
+    email: 'support@adargus.com',
+    body: 'Existing customers needing help with our software.',
+  },
+  {
+    label: 'Security',
+    email: 'security@adargus.com',
+    body: 'Report a vulnerability or security concern responsibly.',
+  },
+];
+---
+
+<BaseLayout
+  title="Contact — AD Argus"
+  description="Get in touch with AD Argus Cybersecurity Corporation — sales, support, and security contacts."
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1 class="section-title">Get in touch</h1>
+      <p class="lead">
+        Reach the right team directly, or send us a message and we'll route it
+        for you.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container contact-grid">
+      <div class="channels">
+        {
+          channels.map((c) => (
+            <a class="channel card" href={`mailto:${c.email}`}>
+              <h3 class="channel-label">{c.label}</h3>
+              <p class="channel-email">{c.email}</p>
+              <p class="text-muted channel-body">{c.body}</p>
+            </a>
+          ))
+        }
+      </div>
+
+      <form
+        class="contact-form card"
+        action="https://formsubmit.co/pidclawbot@gmail.com"
+        method="POST"
+      >
+        <!-- FormSubmit.co configuration (same provider as adpasssync.com) -->
+        <input type="hidden" name="_subject" value="AD Argus Website Inquiry" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://adargus.pages.dev/thank-you/" />
+        <input type="hidden" name="_template" value="table" />
+        <!-- Honeypot: bots fill this, humans don't -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <h3>Send a message</h3>
+        <p class="text-muted form-note">
+          We'll get back to you within two business days.
+        </p>
+
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Work email</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          <span>Company</span>
+          <input type="text" name="company" autocomplete="organization" />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding-bottom: 1.5rem;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .channels {
+    display: grid;
+    gap: 1rem;
+  }
+  .channel {
+    display: block;
+  }
+  .channel:hover {
+    border-color: var(--accent);
+  }
+  .channel-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 0.4rem;
+  }
+  .channel-email {
+    color: var(--accent-bright);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .channel-body {
+    font-size: 0.9rem;
+  }
+
+  .contact-form h3 {
+    margin-bottom: 0.25rem;
+  }
+  .form-note {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-form label {
+    display: block;
+    margin-bottom: 1.1rem;
+  }
+  .contact-form label span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    padding: 0.7rem 0.85rem;
+    font: inherit;
+    transition: border-color 0.15s ease;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+  .contact-form textarea {
+    resize: vertical;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = 'June 22, 2026';
+---
+
+<BaseLayout title="Privacy Policy — AD Argus" description="How AD Argus Cybersecurity Corporation handles personal information.">
+  <section class="page-head">
+    <div class="container narrow">
+      <span class="eyebrow">Legal</span>
+      <h1 class="section-title">Privacy Policy</h1>
+      <p class="text-muted">Last updated: {updated}</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container narrow legal">
+      <div class="notice">
+        <strong>Template notice.</strong> This is a starting-point privacy
+        policy. Before relying on it, have it reviewed by legal counsel familiar
+        with PIPEDA and any other privacy regimes that apply to your customers.
+      </div>
+
+      <h2>1. Who we are</h2>
+      <p>
+        This Privacy Policy describes how AD Argus Cybersecurity Corporation
+        ("AD Argus", "we", "us") collects, uses, and protects personal
+        information through this website and our products.
+      </p>
+
+      <h2>2. Information we collect</h2>
+      <p>
+        We collect information you provide directly — such as your name, email,
+        company, and message when you contact us — and limited technical data
+        (such as IP address and browser type) collected automatically to operate
+        and secure the site.
+      </p>
+
+      <h2>3. How we use information</h2>
+      <p>
+        We use the information to respond to enquiries, provide and improve our
+        products and services, and meet legal and security obligations. We do not
+        sell your personal information.
+      </p>
+
+      <h2>4. Sharing</h2>
+      <p>
+        We share personal information only with service providers who help us
+        operate (for example, hosting and email), and where required by law.
+      </p>
+
+      <h2>5. Data retention &amp; security</h2>
+      <p>
+        We retain personal information only as long as necessary for the purposes
+        described here, and we apply reasonable technical and organizational
+        measures to protect it.
+      </p>
+
+      <h2>6. Your rights</h2>
+      <p>
+        Subject to applicable law, you may request access to, correction of, or
+        deletion of your personal information by contacting us.
+      </p>
+
+      <h2>7. Contact</h2>
+      <p>
+        Questions about this policy? Email
+        <a href="mailto:privacy@adargus.com">privacy@adargus.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+  .page-head {
+    padding-bottom: 1rem;
+  }
+  .legal h2 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .notice {
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.35);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

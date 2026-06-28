@@ -1,0 +1,9 @@
+# https://securitytxt.org/
+Contact: mailto:security@adargus.com
+Preferred-Languages: en
+Canonical: https://adargus.com/.well-known/security.txt
+Expires: 2027-06-22T00:00:00.000Z
+
+# AD Argus Cybersecurity Corporation
+# We welcome responsible disclosure of security issues affecting our
+# website or products. Please email the contact above.
