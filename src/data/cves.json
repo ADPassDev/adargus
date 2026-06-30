@@ -1,6 +1,16 @@
 {
-  "updated": "2026-06-29T16:34:35.883Z",
+  "updated": "2026-06-30T15:24:25.948Z",
   "items": [
+    {
+      "id": "CVE-2026-48558",
+      "title": "SimpleHelp Authentication Bypass Vulnerability",
+      "vendor": "SimpleHelp ",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-06-29",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48558"
+    },
     {
       "id": "CVE-2026-20253",
       "title": "Splunk Enterprise Missing Authentication for Critical Function Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-02-05",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24423"
-    },
-    {
-      "id": "CVE-2019-19006",
-      "title": " Sangoma FreePBX Improper Authentication Vulnerability",
-      "vendor": "Sangoma",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-02-03",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19006"
     }
   ]
 }
