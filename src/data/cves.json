@@ -1,6 +1,16 @@
 {
-  "updated": "2026-07-29T15:06:23.768Z",
+  "updated": "2026-07-30T15:04:32.407Z",
   "items": [
+    {
+      "id": "CVE-2026-20316",
+      "title": "Cisco Secure Firewall Management Center Use of Hard-coded Password Vulnerability",
+      "vendor": "Cisco",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-07-29",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20316"
+    },
     {
       "id": "CVE-2026-16232",
       "title": "Check Point SmartConsole Improper Authentication Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-04-20",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32975"
-    },
-    {
-      "id": "CVE-2026-1603",
-      "title": "Ivanti Endpoint Manager (EPM) Authentication Bypass Vulnerability",
-      "vendor": "Ivanti",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-03-09",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1603"
     }
   ]
 }
