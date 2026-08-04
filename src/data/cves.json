@@ -1,6 +1,16 @@
 {
-  "updated": "2026-08-03T15:39:27.241Z",
+  "updated": "2026-08-04T15:17:47.217Z",
   "items": [
+    {
+      "id": "CVE-2026-18577",
+      "title": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+      "vendor": "N-able",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-08-03",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18577"
+    },
     {
       "id": "CVE-2026-20316",
       "title": "Cisco Secure Firewall Management Center Use of Hard-coded Password Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-04-20",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-27351"
-    },
-    {
-      "id": "CVE-2025-32975",
-      "title": "Quest KACE Systems Management Appliance (SMA) Improper Authentication Vulnerability",
-      "vendor": "Quest",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-04-20",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32975"
     }
   ]
 }
