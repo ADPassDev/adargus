@@ -1,6 +1,16 @@
 {
-  "updated": "2026-08-04T15:17:47.217Z",
+  "updated": "2026-08-05T15:09:34.196Z",
   "items": [
+    {
+      "id": "CVE-2026-18556",
+      "title": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+      "vendor": "N-able",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-08-04",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18556"
+    },
     {
       "id": "CVE-2026-18577",
       "title": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-04-30",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41940"
-    },
-    {
-      "id": "CVE-2023-27351",
-      "title": "PaperCut NG/MF Improper Authentication Vulnerability",
-      "vendor": "PaperCut",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-04-20",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-27351"
     }
   ]
 }
