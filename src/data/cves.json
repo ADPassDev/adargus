@@ -1,6 +1,26 @@
 {
-  "updated": "2026-08-18T13:36:14.477Z",
+  "updated": "2026-08-19T13:37:48.343Z",
   "items": [
+    {
+      "id": "CVE-2026-55040",
+      "title": "Microsoft SharePoint Weak Authentication Vulnerability",
+      "vendor": "Microsoft",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-08-18",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55040"
+    },
+    {
+      "id": "CVE-2026-65400",
+      "title": "Apple macOS Improper Authentication Vulnerability",
+      "vendor": "Apple",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-08-18",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65400"
+    },
     {
       "id": "CVE-2026-18556",
       "title": "N-able N-central Authentication Bypass Using an Alternate Path or Channel Vulnerability",
@@ -120,26 +140,6 @@
       "kev": true,
       "date": "2026-05-29",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0257"
-    },
-    {
-      "id": "CVE-2026-20182",
-      "title": "Cisco Catalyst SD-WAN Controller Authentication Bypass Vulnerability",
-      "vendor": "Cisco",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-05-14",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20182"
-    },
-    {
-      "id": "CVE-2026-41940",
-      "title": "WebPros cPanel & WHM and WP2 (WordPress Squared) Missing Authentication for Critical Function Vulnerability",
-      "vendor": "WebPros",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-04-30",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41940"
     }
   ]
 }
