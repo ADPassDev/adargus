@@ -1,6 +1,26 @@
 {
-  "updated": "2026-09-02T16:56:35.307Z",
+  "updated": "2026-09-03T16:47:29.364Z",
   "items": [
+    {
+      "id": "CVE-2026-59822",
+      "title": "BerriAI LiteLLM Improper Authentication Vulnerability",
+      "vendor": "BerriAI",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-09-02",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59822"
+    },
+    {
+      "id": "CVE-2026-82329",
+      "title": "JFrog Artifactory Improper Authentication Vulnerability",
+      "vendor": "JFrog",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-09-02",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82329"
+    },
     {
       "id": "CVE-2026-81578",
       "title": "PaperCut NG/MF Missing Authentication for Critical Function Vulnerability",
@@ -120,26 +140,6 @@
       "kev": true,
       "date": "2026-06-29",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48558"
-    },
-    {
-      "id": "CVE-2026-20253",
-      "title": "Splunk Enterprise Missing Authentication for Critical Function Vulnerability",
-      "vendor": "Splunk",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-06-18",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20253"
-    },
-    {
-      "id": "CVE-2026-35273",
-      "title": "Oracle PeopleSoft Enterprise PeopleTools Missing Authentication for Critical Function Vulnerability",
-      "vendor": "Oracle",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-06-12",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35273"
     }
   ]
 }
