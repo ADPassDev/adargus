@@ -1,6 +1,16 @@
 {
-  "updated": "2026-09-11T16:50:26.113Z",
+  "updated": "2026-09-12T15:56:41.386Z",
   "items": [
+    {
+      "id": "CVE-2026-42018",
+      "title": "JFrog Artifactory Improper Authentication Vulnerability",
+      "vendor": "JFrog",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-09-11",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42018"
+    },
     {
       "id": "CVE-2026-67277",
       "title": "MikroTik RouterOS Missing Authentication for Critical Function Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-07-29",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20316"
-    },
-    {
-      "id": "CVE-2026-16232",
-      "title": "Check Point SmartConsole Improper Authentication Vulnerability",
-      "vendor": "Check Point",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-07-22",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16232"
     }
   ]
 }
