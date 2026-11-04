@@ -1,6 +1,16 @@
 {
-  "updated": "2026-11-03T19:54:44.485Z",
+  "updated": "2026-11-04T20:11:03.692Z",
   "items": [
+    {
+      "id": "CVE-2024-27834",
+      "title": "Apple Multiple Products Improper Authentication Vulnerability",
+      "vendor": "Apple",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-11-04",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834"
+    },
     {
       "id": "CVE-2026-111357",
       "title": "Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-08-20",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72529"
-    },
-    {
-      "id": "CVE-2026-55040",
-      "title": "Microsoft SharePoint Weak Authentication Vulnerability",
-      "vendor": "Microsoft",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-08-18",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55040"
     }
   ]
 }
