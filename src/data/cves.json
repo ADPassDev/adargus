@@ -1,6 +1,16 @@
 {
-  "updated": "2026-11-06T19:46:46.857Z",
+  "updated": "2026-11-07T17:54:57.910Z",
   "items": [
+    {
+      "id": "CVE-2026-19868",
+      "title": "SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability",
+      "vendor": "SonicWall",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-11-06",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
+    },
     {
       "id": "CVE-2024-27834",
       "title": "Apple Multiple Products Improper Authentication Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-08-27",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49105"
-    },
-    {
-      "id": "CVE-2026-72529",
-      "title": "TrueConf Server Missing Authentication for Critical Function Vulnerability",
-      "vendor": "TrueConf",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-08-20",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72529"
     }
   ]
 }
