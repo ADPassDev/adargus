@@ -1,6 +1,16 @@
 {
-  "updated": "2026-11-08T18:10:04.809Z",
+  "updated": "2026-11-09T22:48:34.948Z",
   "items": [
+    {
+      "id": "CVE-2026-102895",
+      "title": "GPUStack Improper Authentication Vulnerability",
+      "vendor": "GPUStack",
+      "severity": "EXPLOITED",
+      "score": null,
+      "kev": true,
+      "date": "2026-11-09",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102895"
+    },
     {
       "id": "CVE-2026-19868",
       "title": "SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability",
@@ -130,16 +140,6 @@
       "kev": true,
       "date": "2026-08-31",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81578"
-    },
-    {
-      "id": "CVE-2023-49105",
-      "title": "ownCloud Improper Authentication Vulnerability",
-      "vendor": "ownCloud",
-      "severity": "EXPLOITED",
-      "score": null,
-      "kev": true,
-      "date": "2026-08-27",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49105"
     }
   ]
 }
